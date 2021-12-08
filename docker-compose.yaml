@@ -15,8 +15,15 @@ services:
     build:
       context: .
       dockerfile: ./docker/api/Dockerfile
+    volumes:
+      - .:/app
+      - cargo-registry-cache:/usr/local/cargo/registry
+      - target-cache:/app/target
     ports:
       - 28000:8000
     tty: true
     depends_on:
       - db
+volumes:
+  cargo-registry-cache:
+  target-cache:
