@@ -15,6 +15,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/api/Dockerfile
+    environment:
+      DATABASE_URL: mysql://root:root@db:3306/falcon
     volumes:
       - .:/app
       - cargo-registry-cache:/usr/local/cargo/registry
